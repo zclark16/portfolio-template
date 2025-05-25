@@ -10,6 +10,7 @@ interface Project {
   image: string;
   technologies: string[];
   link: string;
+  demo?: string;
 }
 
 const projects: Project[] = [
@@ -19,6 +20,7 @@ const projects: Project[] = [
     image: '/images/ColorstackAtKSU.jpg',
     technologies: ['React.js', 'JavaScript', 'Node.js', 'MongoDB'],
     link: 'https://github.com/colorstacksu/Betasite',
+    demo: 'https://colorstacksu.vercel.app/'
   },
   {
     title: 'ManageMe.io',
@@ -26,6 +28,7 @@ const projects: Project[] = [
     image: '/images/ManageMeIO.png',
     technologies: ['ASP.NET', 'C#', 'HTML/CSS', 'Entity Framework', 'MongoDB'],
     link: 'https://github.com/YetronLives/SPM-project-copy',
+    demo: 'https://spm-project-copy.onrender.com/'
   },
 //   {
 //     title: 'AI Image Generator',
@@ -90,9 +93,16 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <a href={project.link} className={styles.link} target="_blank" rel="noopener noreferrer">
-                  View Project
-                </a>
+                <div className={styles.links}>
+                  <a href={project.link} className={styles.link} target="_blank" rel="noopener noreferrer">
+                    GitHub
+                  </a>
+                  {project.demo && (
+                    <a href={project.demo} className={`${styles.link} ${styles.demo}`} target="_blank" rel="noopener noreferrer">
+                      Live Demo
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
