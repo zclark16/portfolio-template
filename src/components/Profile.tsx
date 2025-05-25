@@ -1,0 +1,71 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import styles from './Profile.module.css';
+
+export default function Profile() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <section ref={sectionRef} className={styles.profile}>
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <div className={styles.imageWrapper}>
+            <div className={styles.imageContainer}>
+              <Image
+                src="/images/profile.jpg"
+                alt="Profile"
+                className={styles.image}
+                fill
+                sizes="(max-width: 768px) 300px, 500px"
+                priority
+                quality={90}
+              />
+              <div className={styles.imageOverlay} />
+            </div>
+          </div>
+          <div className={styles.text}>
+            <h1 className={styles.title}>
+              Hi, I'm <span className={styles.highlight}>Constant!</span>
+            </h1>
+            <p className={styles.subtitle}>
+              Full-stack developer passionate about creating efficient and functional web applications and systems
+            </p>
+            <div className={styles.buttons}>
+              <a href="#projects" className={styles.button}>
+                View Projects
+              </a>
+              <a href="#contact" className={`${styles.button} ${styles.outline}`}>
+                Contact Me
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+} 
