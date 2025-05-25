@@ -8,6 +8,7 @@ export default function Profile() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const currentRef = sectionRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -19,13 +20,13 @@ export default function Profile() {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -50,8 +51,15 @@ export default function Profile() {
           </div>
           <div className={styles.text}>
             <h1 className={styles.title}>
-              Hi, I'm <span className={styles.highlight}>Constant!</span>
+              Hi, I&apos;m <span className={styles.highlight}>Constant!</span>
             </h1>
+            <div className={styles.education}>
+              <p className={styles.school}>
+                <span className={styles.schoolName}>Kennesaw State University</span>
+                <span className={styles.degree}>Software Engineering</span>
+                <span className={styles.minor}>Minor in Mathematics</span>
+              </p>
+            </div>
             <p className={styles.subtitle}>
               Full-stack developer passionate about creating efficient and functional web applications and systems
             </p>

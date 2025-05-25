@@ -32,11 +32,11 @@ const experiences: ExperienceItem[] = [
     period: 'Summer 2023 and Summer 2024',
     description: [
       'Utilized Angular Framework alongside HTML/CSS to update an internal website with content and new UI',
-'Used Typescript to update and maintain a REST API',
-'Researched on JWTs and updated authentication flow for services to support JWTs and created tests for API calls',
-'Created Jest unit tests to test Typescript code to ensure code quality',
-'Utilized Terraform to update AWS Infrastructure configurations (Secrets Managers, Lambda, ECS etc.)',
-'Trained a Machine Learning Model with AWS DeepRacer and placed in top 10 fastest models'
+      'Used Typescript to update and maintain a REST API',
+      'Researched on JWTs and updated authentication flow for services to support JWTs and created tests for API calls',
+      'Created Jest unit tests to test Typescript code to ensure code quality',
+      'Utilized Terraform to update AWS Infrastructure configurations (Secrets Managers, Lambda, ECS etc.)',
+      'Trained a Machine Learning Model with AWS DeepRacer and placed in top 10 fastest models'
     ],
     technologies: ['Angular', 'Typescript', 'Jest', 'Terraform', 'AWS', 'Git'],
     logo: '/images/logos/statefarm.webp'
@@ -48,6 +48,9 @@ export default function Experience() {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    const currentSectionRef = sectionRef.current;
+    const currentItemRefs = itemRefs.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -59,21 +62,21 @@ export default function Experience() {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentSectionRef) {
+      observer.observe(currentSectionRef);
     }
 
-    itemRefs.current.forEach((item) => {
+    currentItemRefs.forEach((item) => {
       if (item) {
         observer.observe(item);
       }
     });
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentSectionRef) {
+        observer.unobserve(currentSectionRef);
       }
-      itemRefs.current.forEach((item) => {
+      currentItemRefs.forEach((item) => {
         if (item) {
           observer.unobserve(item);
         }

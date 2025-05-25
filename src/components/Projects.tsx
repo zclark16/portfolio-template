@@ -1,16 +1,24 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import styles from './Projects.module.css';
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  link: string;
+}
+
+const projects: Project[] = [
   {
     title: 'ColorStack at KSU',
     description: 'Using React.js to develop a website for my college\'s ColorStack Chapter to provide easy access to resources and information.',
     image: 'images/ColorstackAtKSU.jpg',
     technologies: ['React.js', 'JavaScript', 'Node.js', 'MongoDB'],
     link: 'https://github.com/colorstacksu/Betasite',
-    demo: 'https://colorstacksu.vercel.app/',
   },
   {
     title: 'ManageMe.io',
@@ -18,7 +26,6 @@ const projects = [
     image: 'images/ManageMeIO.png',
     technologies: ['ASP.NET', 'C#', 'HTML/CSS', 'Entity Framework', 'MongoDB'],
     link: 'https://github.com/YetronLives/SPM-project-copy',
-    demo: 'https://spm-project-copy.onrender.com/',
   },
 //   {
 //     title: 'AI Image Generator',
@@ -34,6 +41,7 @@ export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const currentRef = sectionRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -45,13 +53,13 @@ export default function Projects() {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -61,45 +69,30 @@ export default function Projects() {
       <div className={styles.container}>
         <h2 className={styles.title}>Projects</h2>
         <div className={styles.grid}>
-          {projects.map((project) => (
-            <div key={project.title} className={styles.project}>
-              <div className={styles.imageContainer}>
-                <img
+          {projects.map((project, index) => (
+            <div key={index} className={styles.project}>
+              <div className={styles.imageWrapper}>
+                <Image
                   src={project.image}
                   alt={project.title}
+                  fill
                   className={styles.image}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className={styles.overlay}>
-                  <div className={styles.links}>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.link}
-                    >
-                      GitHub
-                    </a>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.link}
-                    >
-                      Live Demo
-                    </a>
-                  </div>
-                </div>
               </div>
               <div className={styles.content}>
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.description}>{project.description}</p>
                 <div className={styles.technologies}>
-                  {project.technologies.map((tech) => (
-                    <span key={tech} className={styles.tech}>
+                  {project.technologies.map((tech, i) => (
+                    <span key={i} className={styles.tech}>
                       {tech}
                     </span>
                   ))}
                 </div>
+                <a href={project.link} className={styles.link} target="_blank" rel="noopener noreferrer">
+                  View Project
+                </a>
               </div>
             </div>
           ))}
