@@ -67,6 +67,9 @@ export default function Profile() {
               <a href="#projects" className={styles.button}>
                 View Projects
               </a>
+              <a href="/files/resume.pdf" className={`${styles.button} ${styles.outline}`} target="_blank" rel="noopener noreferrer">
+                View Resume
+              </a>
               <a href="#contact" className={`${styles.button} ${styles.outline}`}>
                 Contact Me
               </a>

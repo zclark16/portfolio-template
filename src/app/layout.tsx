@@ -6,8 +6,12 @@ import Background from "@/components/Background";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Constant Nortey Jr.",
-  description: "Welcome to my portfolio website showcasing my work and skills.",
+  title:  "Portfolio | Constant Nortey Jr.",
+  description: "Full-stack developer passionate about creating efficient and functional web applications and systems",
+  icons: {
+    icon: '/yetron.ico',
+    apple: '/yetron.png',
+  },
 };
 
 export default function RootLayout({

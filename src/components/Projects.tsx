@@ -16,14 +16,14 @@ const projects: Project[] = [
   {
     title: 'ColorStack at KSU',
     description: 'Using React.js to develop a website for my college\'s ColorStack Chapter to provide easy access to resources and information.',
-    image: 'images/ColorstackAtKSU.jpg',
+    image: '/images/ColorstackAtKSU.jpg',
     technologies: ['React.js', 'JavaScript', 'Node.js', 'MongoDB'],
     link: 'https://github.com/colorstacksu/Betasite',
   },
   {
     title: 'ManageMe.io',
     description: 'A collaborative task management application with real-time updates and team collaboration features.',
-    image: 'images/ManageMeIO.png',
+    image: '/images/ManageMeIO.png',
     technologies: ['ASP.NET', 'C#', 'HTML/CSS', 'Entity Framework', 'MongoDB'],
     link: 'https://github.com/YetronLives/SPM-project-copy',
   },
