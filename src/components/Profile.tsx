@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styles from './Profile.module.css';
+import SocialLinks from './SocialLinks';
 
 export default function Profile() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -48,6 +49,7 @@ export default function Profile() {
               />
               <div className={styles.imageOverlay} />
             </div>
+            <SocialLinks />
           </div>
           <div className={styles.text}>
             <h1 className={styles.title}>
@@ -67,7 +69,7 @@ export default function Profile() {
               <a href="#projects" className={styles.button}>
                 View Projects
               </a>
-              <a href="/files/CN_Resume.pdf" className={`${styles.button} ${styles.outline}`} target="_blank" rel="noopener noreferrer">
+              <a href="/files/resume.pdf" className={`${styles.button} ${styles.outline}`} target="_blank" rel="noopener noreferrer">
                 View Resume
               </a>
               <a href="#contact" className={`${styles.button} ${styles.outline}`}>
