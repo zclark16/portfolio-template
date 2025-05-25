@@ -6,11 +6,12 @@ import Background from "@/components/Background";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title:  "Portfolio | Constant Nortey Jr.",
+  title: "Portfolio | Constant Nortey Jr.",
   description: "Full-stack developer passionate about creating efficient and functional web applications and systems",
   icons: {
-    icon: '/yetron.ico',
-    apple: '/yetron.png',
+    icon: { url: '/yetron.ico', type: 'image/x-icon' },
+    shortcut: { url: '/yetron.ico', type: 'image/x-icon' },
+    apple: { url: '/yetron.png', type: 'image/png' },
   },
 };
 
