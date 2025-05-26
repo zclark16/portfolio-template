@@ -9,11 +9,13 @@ export default function Contact() {
     email: '',
     message: ''
   });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('sending');
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
 
     try {
       const response = await fetch('/api/contact', {
@@ -21,18 +23,19 @@ export default function Contact() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          to: 'cnnorteyjr@gmail.com'
-        }),
+        body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error('Failed to send message');
-      
-      setStatus('success');
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      setStatus('error');
+    } catch {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -47,9 +50,9 @@ export default function Contact() {
         <h2 className={styles.title}>Get in Touch</h2>
         <div className={styles.content}>
           <div className={styles.info}>
-            <h3 className={styles.subtitle}>Let's Connect</h3>
+            <h3 className={styles.subtitle}>Let&apos;s Connect</h3>
             <p className={styles.description}>
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
             <div className={styles.email}>
               <span className={styles.label}>Email:</span>
@@ -98,14 +101,14 @@ export default function Contact() {
             <button 
               type="submit" 
               className={styles.button}
-              disabled={status === 'sending'}
+              disabled={isSubmitting}
             >
-              {status === 'sending' ? 'Sending...' : 'Send Message'}
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
-            {status === 'success' && (
+            {submitStatus === 'success' && (
               <p className={styles.success}>Message sent successfully!</p>
             )}
-            {status === 'error' && (
+            {submitStatus === 'error' && (
               <p className={styles.error}>Failed to send message. Please try again.</p>
             )}
           </form>

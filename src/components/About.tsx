@@ -36,7 +36,7 @@ export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const autoPlayRef = useRef<NodeJS.Timeout>();
+  const autoPlayRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   useEffect(() => {
     const currentRef = sectionRef.current;
@@ -94,11 +94,11 @@ export default function About() {
           <div className={styles.story}>
             <h3 className={styles.subtitle}>My Journey</h3>
             <p className={styles.text}>
-              I'm a Software Engineering student at Kennesaw State University with a passion for building impactful solutions. 
+              I&apos;m a Software Engineering student at Kennesaw State University with a passion for building impactful solutions. 
               My journey in tech began with a curiosity about how things work, which led me to explore various programming languages and technologies.
             </p>
             <p className={styles.text}>
-              Through my internships at State Farm and GoDaddy, I've gained hands-on experience in full-stack development, 
+              Through my internships at State Farm and GoDaddy, I&apos;ve gained hands-on experience in full-stack development, 
               cloud technologies, and working in agile environments. These experiences have shaped my approach to problem-solving 
               and my understanding of what makes great software.
             </p>
