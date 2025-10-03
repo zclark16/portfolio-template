@@ -19,9 +19,11 @@ const experiences: ExperienceItem[] = [
     role: 'Software Development Engineer Intern',
     period: 'Summer 2025',
     description: [
-      'Working on full-stack development projects',
-      'Collaborating with cross-functional teams',
-      'Implementing new features and improvements'
+      'Built and deployed a serverless REST API on AWS (CDK, Lambda, DynamoDB, ALB), replacing manual Excel workflows and enabling scalable storage of 1,000+ partner tickets',
+      'Implemented backend services in Go (GET, POST, PATCH), reducing ticket processing time by 70% and ensuring reliable data access for internal stakeholders',
+      'Integrated Asherah encryption into DynamoDB, ensuring 100% secure storage of sensitive customer and partner data',
+      'Increased service reliability by developing unit tests with Mockery, achieving 85%+ test coverage for Lambda business logic',
+      'Improved API usability by documenting endpoints with Swagger, reducing developer onboarding by ~40%',
     ],
     technologies: ['AWS Lambda', 'CDK', 'C#', 'DynamoDB', 'Git'],
     logo: '/images/logos/godaddy.png'
