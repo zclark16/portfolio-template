@@ -24,12 +24,13 @@ export default function Contact() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
+      
       });
 
       if (!response.ok) {
         throw new Error('Failed to send message');
       }
-
+      
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
     } catch {

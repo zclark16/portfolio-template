@@ -5,6 +5,14 @@ export async function POST(request: Request) {
   try {
     const { name, email, message, to } = await request.json();
 
+    // Make sure .env variables are loaded
+    const userEmail = process.env.EMAIL_USER;
+    const userPass = process.env.EMAIL_PASS;
+    if (!userEmail){
+      console.error('❌ MY_EMAIL not defined');
+      return new Response(JSON.stringify({ error: 'Server misconfiguration' }), { status: 500 });
+    }
+
     // Create a transporter using Gmail
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -17,7 +25,7 @@ export async function POST(request: Request) {
     // Email content
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: to,
+      to: process.env.EMAIL_USER,
       subject: `Portfolio Contact from ${name}`,
       text: `
 Name: ${name}
