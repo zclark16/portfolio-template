@@ -3,15 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
   try {
-    const { name, email, message, to } = await request.json();
-
-    // Make sure .env variables are loaded
-    const userEmail = process.env.EMAIL_USER;
-    const userPass = process.env.EMAIL_PASS;
-    if (!userEmail){
-      console.error('❌ MY_EMAIL not defined');
-      return new Response(JSON.stringify({ error: 'Server misconfiguration' }), { status: 500 });
-    }
+    const { name, email, message} = await request.json();
 
     // Create a transporter using Gmail
     const transporter = nodemailer.createTransport({
