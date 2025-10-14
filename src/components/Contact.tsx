@@ -57,8 +57,8 @@ export default function Contact() {
             </p>
             <div className={styles.email}>
               <span className={styles.label}>Email:</span>
-              <a href="mailto:cnnorteyjr@gmail.com" className={styles.emailLink}>
-                cnnorteyjr@gmail.com
+              <a href="mailto:youremail@email.com" className={styles.emailLink}>
+              youremail@email.com
               </a>
             </div>
           </div>

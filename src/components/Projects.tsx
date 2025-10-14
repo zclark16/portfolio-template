@@ -15,29 +15,21 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'ColorStack at KSU',
-    description: 'Using React.js to develop a website for my college\'s ColorStack Chapter to provide easy access to resources and information.',
-    image: '/images/ColorstackAtKSU.jpg',
+    title: 'Project 1',
+    description: 'Give a brief description of your project here.',
+    image: '/images/Project.png',
     technologies: ['React.js', 'JavaScript', 'Node.js', 'MongoDB'],
-    link: 'https://github.com/colorstacksu/Betasite',
-    demo: 'https://colorstacksu.vercel.app/'
+    link: 'link-to-your-repo',
+    demo: 'link-to-live-demo'
   },
   {
-    title: 'ManageMe.io',
-    description: 'A collaborative task management application with real-time updates and team collaboration features.',
-    image: '/images/ManageMeIO.png',
-    technologies: ['ASP.NET', 'C#', 'HTML/CSS', 'Entity Framework', 'MongoDB'],
-    link: 'https://github.com/YetronLives/SPM-project-copy',
-    demo: 'https://spm-project-copy.onrender.com/'
+    title: 'Project 2',
+    description: 'Give a brief description of your project here.',
+    image: '/images/Project.png',
+    technologies: ['ASP.NET', 'C#','SQLite'],
+    link: 'link-to-your-repo',
+    demo: 'link-to-live-demo'
   },
-//   {
-//     title: 'AI Image Generator',
-//     description: 'An AI-powered image generation tool that creates unique artwork based on text prompts.',
-//     image: '/projects/aigenerator.jpg',
-//     technologies: ['Python', 'TensorFlow', 'React', 'FastAPI'],
-//     link: 'https://github.com/yourusername/ai-generator',
-//     demo: 'https://ai-generator-demo.com',
-//   },
 ];
 
 export default function Projects() {

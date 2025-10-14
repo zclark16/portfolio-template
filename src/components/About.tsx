@@ -10,16 +10,6 @@ const interests = [
     description: 'Serving my community and helping others through communities such as ColorStack',
     image: '/images/interests/service.jpg'
   },
-  {
-    title: 'Photography',
-    description: 'Taking photos of nature and architecture',
-    image: '/images/interests/photography.jpg'
-  },
-  {
-    title: 'Learning and Innovation',
-    description: 'Constantly expanding my knowledge in tech and beyond',
-    image: '/images/interests/learning.jpg'
-  },
 //   {
 //     title: 'Music',
 //     description: 'Finding inspiration in different genres and artists',
@@ -94,13 +84,10 @@ export default function About() {
           <div className={styles.story}>
             <h3 className={styles.subtitle}>My Journey</h3>
             <p className={styles.text}>
-              I&apos;m a Software Engineering student at Kennesaw State University with a passion for building impactful solutions. 
-              My journey in tech began with a curiosity about how things work, which led me to explore various programming languages and technologies.
+              Talk about your background, education, and what led you to software engineering.
             </p>
             <p className={styles.text}>
-              Through my internships at State Farm and GoDaddy, I&apos;ve gained hands-on experience in full-stack development, 
-              cloud technologies, and working in agile environments. These experiences have shaped my approach to problem-solving 
-              and my understanding of what makes great software.
+              Discuss your passion for technology and problem-solving. What have you learnt so far?
             </p>
           </div>
           <div className={styles.interests}>
@@ -163,14 +150,6 @@ export default function About() {
               <div className={styles.value}>
                 <h4>Continuous Learning</h4>
                 <p>Always seeking to improve and stay current with technology</p>
-              </div>
-              <div className={styles.value}>
-                <h4>Clean Code</h4>
-                <p>Writing maintainable and efficient solutions</p>
-              </div>
-              <div className={styles.value}>
-                <h4>Collaboration</h4>
-                <p>Working together to achieve better results</p>
               </div>
               <div className={styles.value}>
                 <h4>Innovation</h4>

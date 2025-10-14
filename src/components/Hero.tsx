@@ -7,7 +7,7 @@ const Hero = () => {
       <div className={styles.profileImage}>
         <Image
           src="/images/profile.jpg?v=2"
-          alt="Constant Nortey"
+          alt="Full Name"
           width={300}
           height={300}
           priority

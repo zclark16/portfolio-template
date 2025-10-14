@@ -10,9 +10,7 @@ const skills = [
       { name: 'Java', icon: '☕' },
       { name: 'C#', icon: '🎯' },
       { name: 'Python', icon: '🐍' },
-      { name: 'TypeScript', icon: '📘' },
       { name: 'HTML/CSS', icon: '🌐' },
-      { name: 'Assembly', icon: '⚙️' },
     ],
   },
   {
@@ -20,8 +18,6 @@ const skills = [
     items: [
       { name: 'React.js', icon: '⚛️' },
       { name: 'ASP.NET Core', icon: '🟣' },
-      { name: 'Bootstrap', icon: '🎨' },
-      { name: 'Expo', icon: '📱' },
     ],
   },
   {
@@ -30,7 +26,8 @@ const skills = [
       { name: 'MongoDB', icon: '🍃' },
       { name: 'SQL', icon: '🗄️' },
       { name: 'AWS', icon: '☁️' },
-      { name: 'Terraform', icon: '🏗️' },
+      { name: 'Azure', icon: '🔷' },
+      { name: 'Git', icon: '📦' },
     ],
   },
   {
@@ -39,9 +36,7 @@ const skills = [
       { name: 'VS Code', icon: '💻' },
       { name: 'IntelliJ', icon: '🛠️' },
       { name: 'Rider', icon: '🚀' },
-      { name: 'Git', icon: '📦' },
-      { name: 'GitHub', icon: '🐙' },
-      { name: 'GitLab', icon: '🦊' },
+      { name: 'PyCharm', icon: '🐍' },
     ],
   },
   {
@@ -56,6 +51,7 @@ const skills = [
     category: 'Design & Collaboration',
     items: [
       { name: 'Figma', icon: '🎨' },
+      { name: 'Canva', icon: '🖌️' },
     ],
   },
 ];
