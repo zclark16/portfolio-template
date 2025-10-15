@@ -53,7 +53,7 @@ export default function Profile() {
           </div>
           <div className={styles.text}>
             <h1 className={styles.title}>
-              Hi, I&apos;m <span className={styles.highlight}>First Name</span>
+              Hi, I&apos;m <span className={styles.highlight}>Zion</span>
             </h1>
             <div className={styles.education}>
               <p className={styles.school}>
